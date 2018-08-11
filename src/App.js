@@ -26,15 +26,19 @@ class App extends Component {
     for (var index = 1; index < this.state.posts.length; index++) {
       var author = '/u/' + this.state.posts[index].data.author;
       var post = this.state.posts[index].data.title;
+      var link = this.state.posts[index].data.permalink;
       posts.push(
-        <div id={'#' + index} className="post">
-          <p id={index} className="number">
-            {'#' + index}
-          </p>
-          <p className="author">{author}</p>
-          <hr />
-          <p className="p-post">{post}</p>
-        </div>
+          <div id={'#' + index} key={'#' + index} className="post">
+              <p id={index} className="number">
+                {'#' + index}
+              </p>
+            <a href={'https://reddit.com' + link} target="_blank" className="comments">
+              comments
+            </a>
+            <p className="author">{author}</p>
+            <hr />
+            <p className="p-post">{post}</p>
+          </div>
       );
     }
     return <div className="feed">{posts}</div>;
