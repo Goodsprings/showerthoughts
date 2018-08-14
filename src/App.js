@@ -42,7 +42,18 @@ class App extends Component {
         </div>
       );
     }
-    return <div className="feed">{posts}</div>;
+    return (
+      <div>
+        <h1 id="header">
+          <a href="https://reddit.com/r/Showerthoughts" target="_blank" rel="noopener noreferrer">
+            Showerthoughts
+          </a>
+        </h1>
+        <div className="feed">
+          {posts}
+        </div>
+      </div>
+    );
   }
 }
 
