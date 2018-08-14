@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Fade from 'react-reveal/Fade';
 
 const URL = "https://www.reddit.com/r/Showerthoughts.json?limit=100"
 
@@ -30,25 +31,29 @@ class App extends Component {
         link: this.state.posts[index].data.permalink
       }
       posts.push(
-        <div id={'#' + index} className="post">
-          <p className="post-number">
-            {'#' + index}
-          </p>
-          <a href={'https://reddit.com' + data.link} target="_blank" className="post-comments">
-            comments
-          </a>
-          <p className="post-author">{data.author}</p>
-          <p className="post-content">{data.post}</p>
-        </div>
+        <Fade bottom key={'#' + index}>
+          <div id={'#' + index} className="post">
+            <p className="post-number">
+              {'#' + index}
+            </p>
+            <a href={'https://reddit.com' + data.link} target="_blank" className="post-comments">
+              comments
+            </a>
+            <p className="post-author">{data.author}</p>
+            <p className="post-content">{data.post}</p>
+          </div>
+        </Fade>
       );
     }
     return (
       <div>
-        <h1 id="header">
-          <a href="https://reddit.com/r/Showerthoughts" target="_blank" rel="noopener noreferrer">
-            Showerthoughts
-          </a>
-        </h1>
+        <Fade>
+          <h1 id="header">
+            <a href="https://reddit.com/r/Showerthoughts" target="_blank" rel="noopener noreferrer">
+              Showerthoughts
+            </a>
+          </h1>
+        </Fade>
         <div className="feed">
           {posts}
         </div>
