@@ -24,21 +24,22 @@ class App extends Component {
   render() {
     let posts = [];
     for (var index = 1; index < this.state.posts.length; index++) {
-      var author = '/u/' + this.state.posts[index].data.author;
-      var post = this.state.posts[index].data.title;
-      var link = this.state.posts[index].data.permalink;
+      var data = {
+        author:'/u/' + this.state.posts[index].data.author,
+        post: this.state.posts[index].data.title,
+        link: this.state.posts[index].data.permalink
+      }
       posts.push(
-          <div id={'#' + index} key={'#' + index} className="post">
-              <p id={index} className="number">
-                {'#' + index}
-              </p>
-            <a href={'https://reddit.com' + link} target="_blank" className="comments">
-              comments
-            </a>
-            <p className="author">{author}</p>
-            <hr />
-            <p className="p-post">{post}</p>
-          </div>
+        <div id={'#' + index} className="post">
+          <p className="post-number">
+            {'#' + index}
+          </p>
+          <a href={'https://reddit.com' + data.link} target="_blank" className="post-comments">
+            comments
+          </a>
+          <p className="post-author">{data.author}</p>
+          <p className="post-content">{data.post}</p>
+        </div>
       );
     }
     return <div className="feed">{posts}</div>;

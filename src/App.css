@@ -6,7 +6,7 @@ a {
 body {
   margin: 10px auto;
   height: 100%;
-  max-width: 900px;
+  max-width: 600px;
   background-color: #f7f7f7;
 }
 
@@ -17,7 +17,7 @@ body {
 
 .post {
   margin: 10px;
-  border: 1px solid black;
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 7px;
   background-color: white;
   padding: 10px;
@@ -36,18 +36,19 @@ p {
   font-family: Arial;
 }
 
-p.author {
+p.post-author {
   color: gray;
+  font-size: .8em;
   margin-bottom: 5px;
 }
 
-.number, .comments {
+.post-number, .post-comments {
   position: relative;
   float: right;
   font-weight: bold;
 }
 
-.comments {
+.post-comments {
   font-size: .8em;
   font-weight: normal;
   margin-right: 10px;
@@ -55,10 +56,10 @@ p.author {
   font-family: Arial;
 }
 
-.comments:hover {
+.post-comments:hover {
   text-decoration: underline;
 }
 
 hr {
-  color: lightgray;
+  border-color: rgba(0,0,0,0.03);
 }
